@@ -1,6 +1,6 @@
 # MP3 Converter Utility
 
-This project is a Python-based utility for converting `.mp3` files in a specified directory with custom audio settings using `ffmpeg`. The script allows you to adjust audio properties such as volume, bitrate, and playback speed for each file. This project includes two main scripts: `list_mp3s.py` to list `.mp3` files and `convert.py` to convert audio files with specific configurations.
+This project is a Python-based utility for converting `.mp3` files in a specified directory with custom audio settings using `ffmpeg`. The script allows you to adjust audio properties such as volume, bitrate, and playback speed for each file. This project includes two main scripts: `listmp3.py` to list `.mp3` files and `convert.py` to convert audio files with specific configurations.
 
 ## Requirements
 
@@ -18,13 +18,13 @@ This project is a Python-based utility for converting `.mp3` files in a specifie
 
 ## Scripts Overview
 
-### 1. `list_mp3s.py`
+### 1. `listmp3.py`
 
 This script lists all `.mp3` files in a specified directory and outputs the full file paths. The paths can be saved to a text file or printed to the console.
 
 **Usage**:
 ```bash
-python list_mp3s.py <directory_path> [-o output_file.txt]
+python listmp3.py <directory_path> [-o output_file.txt]
 ```
 
 - **`<directory_path>`**: The directory to search for `.mp3` files.
@@ -32,7 +32,7 @@ python list_mp3s.py <directory_path> [-o output_file.txt]
 
 Example:
 ```bash
-python list_mp3s.py /path/to/mp3files -o file.txt
+python listmp3.py /path/to/mp3files -o file.txt
 ```
 
 This will create `file.txt` with the full paths of all `.mp3` files found in `/path/to/mp3files`.
@@ -61,16 +61,16 @@ python convert.py "/path/to/input.mp3" "/path/to/output.mp3" --volume 2.5 --bitr
 
 To convert multiple `.mp3` files listed in a file:
 
-1. Use `list_mp3s.py` to generate a list of `.mp3` file paths:
+1. Use `listmp3.py` to generate a list of `.mp3` file paths:
    ```bash
-   python list_mp3s.py /path/to/mp3files -o file.txt
+   python listmp3.py /path/to/mp3files -o file.txt
    ```
 
 2. Use a batch processing script (e.g., `batch_convert.py`) that reads each line from `file.txt` and applies `convert.py` to each file. This file should output converted files to a separate directory.
 
 ## How It Works
 
-1. **Listing Files**: `list_mp3s.py` generates a list of `.mp3` file paths, which can be saved to a file.
+1. **Listing Files**: `listmp3.py` generates a list of `.mp3` file paths, which can be saved to a file.
 2. **Conversion**: `convert.py` uses `ffmpeg` to convert each file with custom settings for volume, bitrate, and speed.
 3. **Batch Processing**: `batch_convert.py` (not shown here) loops through each file in `file.txt`, applies `convert.py` to convert each one, and saves them to an output directory.
 
@@ -78,7 +78,7 @@ To convert multiple `.mp3` files listed in a file:
 
 ```bash
 # Step 1: List all mp3 files in a directory
-python list_mp3s.py /path/to/mp3files -o file.txt
+python listmp3.py /path/to/mp3files -o file.txt
 
 # Step 2: Convert each file listed in file.txt
 # Run batch_convert.py to apply settings to all files
